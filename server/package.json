@@ -5,7 +5,8 @@
 		"express": "3.2.x",
 		"mongoose": "3.6.x",
 		"q": "0.9.x",
-		"config-env": "0.1.x"
+		"config-env": "0.1.x",
+		"connect": "2.7.x"
 	},
 	"devDependencies": {
 		"open": "0.0.x"
