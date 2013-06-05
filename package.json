@@ -1,6 +1,6 @@
 {
-  "name": "privata",
-  "version": "0.0.0",
+  "name": "flouss",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
