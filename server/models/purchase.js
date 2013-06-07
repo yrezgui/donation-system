@@ -13,26 +13,10 @@ var purchaseSchema = Schema({
 	},
 	fileId: {
 		type: Schema.Types.ObjectId,
-		ref: 'Client'
+		ref: 'File'
 	},
-	bucket: {
-		type: String,
-		required: true
-	},
-	size: {
-		type: Number,
-		required: true
-	},
-	icon: {
-		type: String,
-		required: true
-	},
-	price: {
-		type: Number,
-		required: true
-	},
-	description: {
-		type: String,
+	date: {
+		type: Date,
 		required: true
 	}
 });
