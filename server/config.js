@@ -4,7 +4,7 @@ var config = require('config-env').define('NODE_ENV', function (config) {
 		// Express port
 		express_port: process.env.PORT || 3000,
 	});
-
+	
 	config.config('development', {
 		// MongoDB connexion
 		mongo_uri: 'mongodb://localhost/flouss',
@@ -14,7 +14,9 @@ var config = require('config-env').define('NODE_ENV', function (config) {
 		cookie_maxage: 2 * 60 * 60 * 1000,
 		// Amazon Credentials
 		aws_accessKeyId: 'AAAAAAAAAAAAAAAAAAA',
-		aws_secretAccessKey: 'XXXXXXXXXXXXXXXX'
+		aws_secretAccessKey: 'XXXXXXXXXXXXXXXX',
+		// Default Avatar
+		default_avatar: 'http://localhost:' + process.env.PORT + '/images/default-avatar.png'
 	});
 
 	config.config('production', {
@@ -29,3 +31,5 @@ var config = require('config-env').define('NODE_ENV', function (config) {
 		aws_secretAccessKey: 'XXXXXXXXXXXXXXXX'
 	});
 });
+
+module.exports = config;
