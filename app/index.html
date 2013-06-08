@@ -6,16 +6,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title>Flouss Demo</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/flat-ui.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="privataApp">
+  <body ng-app="floussApp">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -26,7 +27,63 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view></div>
+    <div class="container">
+      <div class="logo-header span7 centered">
+        <div class="logo-img pull-left"></div>
+        <h1 class="demo-panel-title pull-left">
+          <span>Flouss</span>
+          <br>
+          <small>Simple Paid Content Management System</small>
+        </h1>
+      </div>
+      <div class="row demo-row">
+        <div class="span12">
+          <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+              <div class="container">
+                <div class="nav-collapse collapse">
+                  <ul class="nav">
+                    <li>
+                      <a href="#fakelink">
+                        Flouss
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/account">
+                        My Account
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/market">
+                        Market
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://github.com/yrezgui/flouss">
+                        Fork on GitHub
+                      </a>
+                    </li>
+                    <li>
+                      <div class="google-login">
+                        <span class="g-signin"
+                          data-scope="https://www.googleapis.com/auth/plus.login"
+                          data-clientid="YOUR_CLIENT_ID"
+                          data-redirecturi="postmessage"
+                          data-accesstype="offline"
+                          data-cookiepolicy="single_host_origin"
+                          data-callback="signInCallback">
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-view></div>
+    </div>
 
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
@@ -44,6 +101,17 @@
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    <script>
+      (function () {
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'https://plus.google.com/js/client:plusone.js?onload=start';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+      })();
     </script>
   </body>
 </html>
