@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('privataApp', [])
+angular.module('floussApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
