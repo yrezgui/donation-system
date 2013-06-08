@@ -2,9 +2,6 @@
 var mongoose	= require('mongoose'),
 	Schema		= mongoose.Schema;
 
-// Database client
-var db = require('../db.js');
-
 var fileSchema = Schema({
 	fileId: {
 		type: String,
@@ -36,4 +33,4 @@ var fileSchema = Schema({
 });
 
 // export the file model
-module.exports = db.model('File', fileSchema);
+module.exports = mongoose.model('File', fileSchema);

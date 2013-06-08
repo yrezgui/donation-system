@@ -2,27 +2,27 @@
 var mongoose	= require('mongoose'),
 	Schema		= mongoose.Schema;
 
-// Database client
-var db = require('../db.js');
-
 var clientSchema = Schema({
-	googleId: {
+	firstname: {
 		type: String,
 		required: true
 	},
-	name: {
+	lastname: {
 		type: String,
 		required: true
 	},
 	email: {
 		type: String,
 		required: true
-	}
-	photo: {
+	},
+	password: {
 		type: String,
 		required: true
+	},
+	photo: {
+		type: String
 	}
 });
 
 // export the client model
-module.exports = db.model('Client', clientSchema);
+module.exports = mongoose.model('Client', clientSchema);

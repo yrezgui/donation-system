@@ -2,9 +2,6 @@
 var mongoose	= require('mongoose'),
 	Schema		= mongoose.Schema;
 
-// Database client
-var db = require('../db.js');
-
 var purchaseSchema = Schema({
 	client: {
 		type: Schema.Types.ObjectId,
@@ -22,4 +19,4 @@ var purchaseSchema = Schema({
 });
 
 // export the purchase model
-module.exports = db.model('Purchase', purchaseSchema);
+module.exports = mongoose.model('Purchase', purchaseSchema);
