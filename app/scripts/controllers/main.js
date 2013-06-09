@@ -7,8 +7,6 @@ angular.module('floussApp')
 			'AngularJS',
 			'Karma'
 		];
-
-		$scope.alerts = flash.getAll();
 		
 		$scope.$on('$routeChangeSuccess', function () {
 			$scope.alerts = flash.getAll();
