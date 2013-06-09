@@ -1,16 +1,17 @@
-<form class="form-horizontal span6 centered">
+<h1 class="offset1">Login</h1>
+<form class="form-horizontal span6 centered" ng-submit="processLogin()">
 	<fieldset>
-    	<legend>Please sign in</legend>
+		<legend>Please fill all the fields</legend>
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">Email</label>
+			<label class="control-label" for="email">Email</label>
 			<div class="controls">
-				<input type="text" id="inputEmail" placeholder="da@fu.ck">
+				<input type="email" id="email" ng-model="form.email" placeholder="da@fu.ck" required>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="inputPassword">Password</label>
+			<label class="control-label" for="password">Password</label>
 			<div class="controls">
-				<input type="password" id="inputPassword" placeholder="*******">
+				<input type="password" id="password" ng-model="form.password" placeholder="*******" required pattern=".{4,}">
 			</div>
 		</div>
 		<button class="btn btn-primary offset2">Sign in</button>
