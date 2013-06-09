@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="floussApp">
+  <body ng-app="floussApp" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -54,6 +54,11 @@
                       </a>
                     </li>
                     <li>
+                      <a href="#/login">
+                        Login
+                      </a>
+                    </li>
+                    <li>
                       <a href="#/market">
                         Market
                       </a>
@@ -62,18 +67,6 @@
                       <a href="http://github.com/yrezgui/flouss">
                         Fork on GitHub
                       </a>
-                    </li>
-                    <li>
-                      <div class="google-login">
-                        <span class="g-signin"
-                          data-scope="https://www.googleapis.com/auth/plus.login"
-                          data-clientid="YOUR_CLIENT_ID"
-                          data-redirecturi="postmessage"
-                          data-accesstype="offline"
-                          data-cookiepolicy="single_host_origin"
-                          data-callback="signInCallback">
-                        </span>
-                      </div>
                     </li>
                   </ul>
                 </div>
@@ -92,7 +85,12 @@
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/services/Client.js"></script>
+    <script src="scripts/services/flash.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/signup.js"></script>
+    <script src="scripts/controllers/login.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
