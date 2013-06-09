@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('floussApp')
-	.controller('MainCtrl', function ($scope, flash) {
+	.controller('MainCtrl', function MainCtrl($scope, flash) {
 		$scope.awesomeThings = [
 			'HTML5 Boilerplate',
 			'AngularJS',
