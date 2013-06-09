@@ -1,7 +1,3 @@
-
-var mongoose	= require('mongoose');
-mongoose.connect('mongodb://localhost/flouss');
-
 var Client = require('../../models/client.js');
 
 exports.query = function(req, res, next){
