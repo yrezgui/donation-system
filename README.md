@@ -1,4 +1,4 @@
-![Flouss Logo](https://github.com/yrezgui/flouss/images/logo-circle-128.png "Flouss logo")
+![Flouss Logo](http://raw.github.com/yrezgui/flouss/master/images/logo-circle-128.png "Flouss logo")
 
 #Flouss
 
