@@ -1,0 +1,37 @@
+<h1 class="offset1">Signup</h1>
+<form class="form-horizontal span6 centered" ng-submit="processSignup()">
+	<fieldset>
+		<legend>Please fill these fields</legend>
+		<div class="control-group">
+			<label class="control-label" for="firstname">Firstname</label>
+			<div class="controls">
+				<input type="text" id="firstname" ng-model="form.firstname" placeholder="Yacine" required pattern=".{2,}">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="lastname">Lastname</label>
+			<div class="controls">
+				<input type="text" id="lastname" ng-model="form.lastname" placeholder="Rezgui" required pattern=".{2,}">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="email">Email</label>
+			<div class="controls">
+				<input type="email" id="email" ng-model="form.email" placeholder="da@fu.ck" required>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">Password</label>
+			<div class="controls">
+				<input type="password" id="password" ng-model="form.password" placeholder="*******" required pattern=".{4,}">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="url">Photo (URL)</label>
+			<div class="controls">
+				<input type="url" id="url" ng-model="form.url">
+			</div>
+		</div>
+		<button class="btn btn-primary offset2">Signup</button>
+	</fieldset>
+</form>
