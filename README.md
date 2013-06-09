@@ -1,6 +1,4 @@
-![Flouss Logo](http://raw.github.com/yrezgui/flouss/master/images/logo-circle-128.png "Flouss logo")
-
-#Flouss
+# ![Flouss Logo](http://farm9.staticflickr.com/8559/8994014836_e186881af6_t.jpg "Flouss logo") Flouss
 
 **Flouss** is a paid content management system.
 
