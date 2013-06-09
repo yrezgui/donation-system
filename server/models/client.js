@@ -25,4 +25,4 @@ var clientSchema = Schema({
 });
 
 // export the client model
-module.exports = mongoose.model('Client', clientSchema);
+module.exports = db.model('Client', clientSchema);

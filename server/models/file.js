@@ -33,4 +33,4 @@ var fileSchema = Schema({
 });
 
 // export the file model
-module.exports = mongoose.model('File', fileSchema);
+module.exports = db.model('File', fileSchema);

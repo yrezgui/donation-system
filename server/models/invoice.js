@@ -2,7 +2,7 @@
 var mongoose	= require('mongoose'),
 	Schema		= mongoose.Schema;
 
-var purchaseSchema = Schema({
+var invoiceSchema = Schema({
 	client: {
 		type: Schema.Types.ObjectId,
 		ref: 'Client',
@@ -15,8 +15,12 @@ var purchaseSchema = Schema({
 	date: {
 		type: Date,
 		required: true
+	},
+	total: {
+		type: Number,
+		required: true
 	}
 });
 
-// export the purchase model
-module.exports = mongoose.model('Purchase', purchaseSchema);
+// export the invoice model
+module.exports = db.model('Invoice', invoiceSchema);
