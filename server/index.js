@@ -51,9 +51,6 @@ app.use(express.bodyParser());
 // support _method (PUT and DELETE in forms)
 app.use(express.methodOverride());
 
-// Cross-site request forgery protection
-app.use(express.csrf());
-
 // Activate Express router
 app.use(app.router);
 
