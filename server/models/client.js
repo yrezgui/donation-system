@@ -21,6 +21,11 @@ var clientSchema = Schema({
 	},
 	photo: {
 		type: String
+	},
+	token: {
+		type: String,
+		required: true,
+		default: null
 	}
 });
 
