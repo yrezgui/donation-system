@@ -1,9 +1,9 @@
 var File = require('../../models/file.js');
 
-exports.query = function(req, res, next){
+exports.query = function query(req, res, next) {
 	console.log('Query Files');
 
-	File.find(function(err, files) {
+	File.find(function (err, files) {
 		if(err)
 			return next(err);
 		
@@ -11,7 +11,7 @@ exports.query = function(req, res, next){
 	});
 };
 
-exports.create = function(req, res, next){
+exports.create = function create(req, res, next) {
 	console.log('Create File');
 
 	File.create(req.body, function (err, file) {
@@ -22,10 +22,10 @@ exports.create = function(req, res, next){
 	});
 };
 
-exports.get = function(req, res, next){
+exports.get = function get(req, res, next) {
 	console.log('Get File ' + req.params.id);
 
-	File.findOne({_id: req.params.id}, function(err, file) {
+	File.findOne({_id: req.params.id}, function (err, file) {
 		if(err)
 			return next(err);
 
@@ -33,10 +33,10 @@ exports.get = function(req, res, next){
 	});
 };
 
-exports.save = function(req, res, next){
+exports.save = function save(req, res, next) {
 	console.log('Update File ' + req.params.id);
 
-	File.findByIdAndUpdate(req.params.id, req.body, function(err, file) {
+	File.findByIdAndUpdate(req.params.id, req.body, function (err, file) {
 		if (err)
 			return next(err);
 
@@ -44,10 +44,10 @@ exports.save = function(req, res, next){
 	});
 };
 
-exports.remove = function(req, res, next){
+exports.remove = function remove(req, res, next) {
 	console.log('Remove File ' + req.params.id);
 
-	File.findByIdAndRemove(req.params.id, function(err, file) {
+	File.findByIdAndRemove(req.params.id, function (err, file) {
 		if (err)
 			return next(err);
 
