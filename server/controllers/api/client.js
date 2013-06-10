@@ -1,56 +1,76 @@
 var Client = require('../../models/client.js');
+var crypto = require('crypto');
 
-exports.query = function(req, res, next){
+exports.query = function query(req, res, next) {
 	console.log('Query Clients');
 
 	Client.find(function(err, clients) {
-		if(err)
-			return next(err);
-		
-		res.send(clients);
+
+		res.send({
+			error: err,
+			clients: clients || null
+		});
 	});
 };
 
-exports.create = function(req, res, next){
+exports.create = function create(req, res, next) {
 	console.log('Create Client');
 
 	Client.create(req.body, function (err, client) {
-		if (err)
-			return next(err);
-		
-		res.send(client);
+	
+		res.send({
+			error: err,
+			client: client || null
+		});
 	});
 };
 
-exports.get = function(req, res, next){
+exports.get = function get(req, res, next) {
 	console.log('Get Client ' + req.params.id);
 
 	Client.findOne({_id: req.params.id}, function(err, client) {
-		if(err)
-			return next(err);
 
-		res.send(client);
+		res.send({
+			error: err,
+			client: client || null
+		});
 	});
 };
 
-exports.save = function(req, res, next){
+exports.save = function save(req, res, next) {
 	console.log('Update Client ' + req.params.id);
 
 	Client.findByIdAndUpdate(req.params.id, req.body, function(err, client) {
-		if (err)
-			return next(err);
 
-		res.send(client);
+		res.send({
+			error: err,
+			client: client || null
+		});
 	});
 };
 
-exports.remove = function(req, res, next){
+exports.remove = function remove(req, res, next) {
 	console.log('Remove Client ' + req.params.id);
 
 	Client.findByIdAndRemove(req.params.id, function(err, client) {
-		if (err)
-			return next(err);
+		
+		res.send({
+			error: err,
+			client: client || null
+		});
+	});
+};
 
-		res.send(client);
+exports.login = function login(req, res, next) {
+	console.log('Login Client ' + req.body.email);
+
+	var newToken = crypto.createHash('sha256').update(crypto.randomBytes(24).toString('hex') + req.body.email + new Date()).digest('hex');
+
+	Client.findOneAndUpdate(req.body, {token: newToken}, function(err, client) {
+		
+		res.send({
+			error: err,
+			client: client || null
+		});
 	});
 };
