@@ -25,7 +25,7 @@ var clientSchema = Schema({
 	token: {
 		type: String,
 		required: true,
-		default: null
+		default: '-1'
 	}
 });
 

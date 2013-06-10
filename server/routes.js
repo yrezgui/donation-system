@@ -12,6 +12,8 @@ module.exports = function(parent){
 	parent.put('/api/client/:id', client.save);
 	parent.delete('/api/client/:id', client.remove);
 
+	parent.post('/api/client/login', client.login);
+
 	// File entity API
 	parent.get('/api/file/', file.query);
 	parent.get('/api/file/:id', file.get);
