@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('floussApp')
-	.controller('HomeCtrl', ['$scope', function HomeCtrl($scope) {
+	.controller('AccountCtrl', ['$scope', function AccountCtrl($scope) {
 		$scope.awesomeThings = [
 			'HTML5 Boilerplate',
 			'AngularJS',
