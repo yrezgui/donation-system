@@ -6,7 +6,8 @@
 		"mongoose": "3.6.x",
 		"q": "0.9.x",
 		"config-env": "0.1.x",
-		"aws-sdk": "1.2.x"
+		"aws-sdk": "1.2.x",
+		"lodash": "1.2.x"
 	},
 	"devDependencies": {
 		"open": "0.0.x"
