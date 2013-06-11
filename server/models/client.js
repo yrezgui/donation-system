@@ -29,5 +29,12 @@ var clientSchema = Schema({
 	}
 });
 
+clientSchema.methods.getLogin = function getLogin() {
+	obj = this.toObject();
+	delete obj.password;
+
+	return obj;
+}
+
 // export the client model
 module.exports = db.model('Client', clientSchema);
