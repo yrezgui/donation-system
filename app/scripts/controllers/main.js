@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('floussApp')
-	.controller('MainCtrl', function MainCtrl($scope, flash) {
+	.controller('MainCtrl', ['$scope', 'flash', function MainCtrl($scope, flash) {
 		$scope.awesomeThings = [
 			'HTML5 Boilerplate',
 			'AngularJS',
@@ -11,4 +11,5 @@ angular.module('floussApp')
 		$scope.$on('$routeChangeSuccess', function () {
 			$scope.alerts = flash.getAll();
 		});
-	});
+
+	}]);
