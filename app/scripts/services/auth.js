@@ -17,6 +17,10 @@ angular.module('floussApp')
 			getUser: function getUser() {
 				return user;
 			},
+			// Return the current token of the user
+			getToken: function getToken() {
+				return user ? user.token : null;
+			},
 			// Remove the user cookie and set to null the current user object
 			logout: function logout() {
 				$cookieStore.remove('user');
