@@ -26,9 +26,14 @@ angular.module('floussApp', ['ngCookies', 'ngResource'])
 			};
 		
 			var error = function error(response) {
+				
 				switch(response.status) {
 					case 401:
-						$rootScope.$broadcast('auth:loginRequired');
+
+						if(response.config.url !== '/api/client/login') {
+							$rootScope.$broadcast('auth:loginRequired');
+						}
+
 						break;
 
 					case 403:
