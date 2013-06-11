@@ -1,5 +1,5 @@
-var Client = require('../../models/client.js');
-var crypto = require('crypto');
+var Client	= require('../../models/client.js');
+var crypto	= require('crypto');
 
 exports.query = function query(req, res, next) {
 	console.log('Query Clients');
@@ -66,11 +66,22 @@ exports.login = function login(req, res, next) {
 
 	var newToken = crypto.createHash('sha256').update(crypto.randomBytes(24).toString('hex') + req.body.email + new Date()).digest('hex');
 
-	Client.findOneAndUpdate(req.body, {token: newToken}, function(err, client) {
-		
-		res.send({
-			error: err,
-			client: client || null
-		});
-	});
+	Client.findOneAndUpdate(
+		{
+			email: req.body.email,
+			password: req.body.password,
+		},
+		{
+			token: newToken
+		},
+		function(err, client) {
+	
+			if(err || !client) {
+				res.send({err: 'wrong email/password'}, 401);
+				return;
+			}
+	
+			res.send(client.getLogin());
+		}
+	);
 };
