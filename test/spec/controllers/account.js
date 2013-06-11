@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: AccountCtrl', function () {
 
   // load the controller's module
   beforeEach(module('floussApp'));
 
-  var MainCtrl,
+  var AccountCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    AccountCtrl = $controller('AccountCtrl', {
       $scope: scope
     });
   }));
