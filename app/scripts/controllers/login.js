@@ -10,7 +10,7 @@ angular.module('floussApp')
 
 					console.log('success', client);
 
-					auth.login(client);
+					auth.setUser(client);
 
 					flash.add('login-success', {
 						type: 'info',

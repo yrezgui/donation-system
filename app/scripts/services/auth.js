@@ -9,7 +9,7 @@ angular.module('floussApp')
 		// Public API here
 		return {
 			// Called when the user log in
-			login: function login(user) {
+			setUser: function setUser(user) {
 				_user = user;
 				$cookieStore.put('user', _user);
 			},
