@@ -3,9 +3,11 @@
 angular.module('floussApp')
 	.controller('MainCtrl', ['$scope', 'flash', 'auth', '$location', function MainCtrl($scope, flash, auth, $location) {
 
+		$scope.connected = auth.isConnected();
+
 		$scope.$on('$routeChangeSuccess', function () {
 			// Flush the current flash messages list and replace it with the new one
-			$scope.alerts = flash.getAll();
+			$scope.messages = flash.getAll();
 		});
 
 		// Receive this event when a 401 HTTP error code is catched from the API

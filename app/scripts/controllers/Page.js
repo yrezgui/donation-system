@@ -1,10 +1,6 @@
 'use strict';
 
 angular.module('floussApp')
-  .controller('PageCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('PageCtrl', ['$scope', function ($scope) {
+
+	}]);
