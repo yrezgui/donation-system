@@ -2,29 +2,37 @@
 
 angular.module('floussApp')
 	.factory('auth', ['$cookieStore', function auth($cookieStore) {
-		var user = null;
+		var _user = null;
 		// It sets the current logged user with the info
-		user = $cookieStore.get('user');
+		_user = $cookieStore.get('user');
 
 		// Public API here
 		return {
 			// Called when the user log in
 			login: function login(user) {
-				user = user;
-				$cookieStore.put('user', user);
+				_user = user;
+				$cookieStore.put('user', _user);
+			},
+			// Check if the user is logged
+			isConnected: function isConnected() {
+				return _user ? true : false;
 			},
 			// Return the current logged user
 			getUser: function getUser() {
-				return user;
+				return _user;
+			},
+			// Return the id of the current user
+			getId: function getId() {
+				return _user ? _user.id : null;
 			},
 			// Return the current token of the user
 			getToken: function getToken() {
-				return user ? user.token : null;
+				return _user ? _user.token : null;
 			},
 			// Remove the user cookie and set to null the current user object
 			logout: function logout() {
 				$cookieStore.remove('user');
-				user = null;
+				_user = null;
 			}
 		};
 	}]);

@@ -17,6 +17,10 @@ ul.nav li div.google-login {
 	float: none !important;
 }
 
+.text-centered {
+	text-align: center;
+}
+
 div.logo-header div.logo-img {
 	margin-right: 20px;
 	background-size: 128px;
