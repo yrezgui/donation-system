@@ -4,12 +4,14 @@ var crypto	= require('crypto');
 exports.query = function query(req, res, next) {
 	console.log('Query Clients');
 
-	Client.find(function(err, clients) {
-
-		res.send({
-			error: err,
-			clients: clients || null
-		});
+	Client.find().select('-token -password').exec(function(err, clients) {
+		
+		if(err) {
+			res.send({err: 'server error'}, 500);
+			return;
+		}
+	
+		res.send(clients);
 	});
 };
 
@@ -17,11 +19,13 @@ exports.create = function create(req, res, next) {
 	console.log('Create Client');
 
 	Client.create(req.body, function (err, client) {
+
+		if(err || !client) {
+			res.send({err: 'client not created'}, 409);
+			return;
+		}
 	
-		res.send({
-			error: err,
-			client: client || null
-		});
+		res.send(client.getProfile());
 	});
 };
 
@@ -31,7 +35,7 @@ exports.get = function get(req, res, next) {
 	Client.findOne({_id: req.params.id}, function(err, client) {
 
 		if(err || !client) {
-			res.send({err: 'user not exist'}, 404);
+			res.send({err: 'client not exist'}, 404);
 			return;
 		}
 	
@@ -45,7 +49,7 @@ exports.save = function save(req, res, next) {
 	Client.findByIdAndUpdate(req.params.id, req.body, function(err, client) {
 
 		if(err || !client) {
-			res.send({err: 'user not exist'}, 404);
+			res.send({err: 'client not exist'}, 404);
 			return;
 		}
 	
@@ -59,7 +63,7 @@ exports.remove = function remove(req, res, next) {
 	Client.findByIdAndRemove(req.params.id, function(err, client) {
 		
 		if(err || !client) {
-			res.send({err: 'user not exist'}, 404);
+			res.send({err: 'client not exist'}, 404);
 			return;
 		}
 	
