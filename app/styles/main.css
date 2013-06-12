@@ -38,3 +38,7 @@ div.logo-header h1.demo-panel-title small{
 	top: -10px;
 	font-size: 20px;
 }
+
+ul.nav.nav-tabs a {
+	text-decoration: none;
+}
