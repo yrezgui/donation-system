@@ -32,5 +32,13 @@ var fileSchema = Schema({
 	}]
 });
 
+// Remove confidential informations
+fileSchema.methods.getPublic = function getPublic() {
+	obj = this.toObject();
+	delete obj.bucket;
+
+	return obj;
+};
+
 // export the file model
 module.exports = db.model('File', fileSchema);
