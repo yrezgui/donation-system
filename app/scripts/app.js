@@ -63,4 +63,18 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
 		});
 
 		RestangularProvider.setBaseUrl('/api');
+		
+		RestangularProvider.setRestangularFields({
+			id: '_id'
+		});
+      
+		RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
+			
+			if (operation === 'put') {
+				delete elem._id;
+				return elem;
+			}
+
+			return elem;
+		});
 	}]);
