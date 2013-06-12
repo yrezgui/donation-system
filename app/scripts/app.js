@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('floussApp', ['ngCookies', 'ngResource'])
-	.config(['$routeProvider', '$httpProvider', function floussApp($routeProvider, $httpProvider) {
+angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
+	.config(['$routeProvider', '$httpProvider', 'RestangularProvider', function floussApp($routeProvider, $httpProvider, RestangularProvider) {
 		$routeProvider
 			.when('/', {
 				templateUrl: 'views/index.html',
@@ -61,4 +61,6 @@ angular.module('floussApp', ['ngCookies', 'ngResource'])
 			};
 		
 		});
+
+		RestangularProvider.setBaseUrl('/api');
 	}]);

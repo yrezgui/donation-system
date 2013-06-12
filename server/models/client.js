@@ -29,7 +29,7 @@ var clientSchema = Schema({
 	}
 });
 
-clientSchema.methods.getLogin = function getLogin() {
+clientSchema.methods.getProfile = function getProfile() {
 	obj = this.toObject();
 	delete obj.password;
 

@@ -23,7 +23,7 @@ angular.module('floussApp')
 			},
 			// Return the id of the current user
 			getId: function getId() {
-				return _user ? _user.id : null;
+				return _user ? _user._id : null;
 			},
 			// Return the current token of the user
 			getToken: function getToken() {

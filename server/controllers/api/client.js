@@ -30,10 +30,12 @@ exports.get = function get(req, res, next) {
 
 	Client.findOne({_id: req.params.id}, function(err, client) {
 
-		res.send({
-			error: err,
-			client: client || null
-		});
+		if(err || !client) {
+			res.send({err: 'user not exist'}, 404);
+			return;
+		}
+	
+		res.send(client.getProfile());
 	});
 };
 
@@ -81,7 +83,7 @@ exports.login = function login(req, res, next) {
 				return;
 			}
 	
-			res.send(client.getLogin());
+			res.send(client.getProfile());
 		}
 	);
 };
