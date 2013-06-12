@@ -4,11 +4,13 @@ exports.query = function query(req, res, next) {
 	console.log('Query Invoices');
 
 	Invoice.find(function (err, invoices) {
-
-		res.send({
-			error: err,
-			invoices: invoices || null
-		});
+		
+		if(err) {
+			res.send({err: 'server error'}, 500);
+			return;
+		}
+	
+		res.send(invoices);
 	});
 };
 
@@ -16,11 +18,13 @@ exports.create = function create(req, res, next) {
 	console.log('Create Invoice');
 
 	Invoice.create(req.body, function (err, invoice) {
-		
-		res.send({
-			error: err,
-			invoice: invoice || null
-		});
+
+		if(err || !invoice) {
+			res.send({err: 'invoice not created'}, 409);
+			return;
+		}
+	
+		res.send(invoice);
 	});
 };
 
