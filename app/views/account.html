@@ -1,29 +1,29 @@
 <div class="row">
 	<div class="span3">
 		<p class="text-centered">
-			<img class="img-polaroid" src="/images/default-avatar.png" alt="me">
+			<img class="img-polaroid" ng-src="{{ client.url || '/images/default-avatar.png' }}" alt="me">
 		</p>
 	</div>
 	<div class="span8">
-		<form class="form-horizontal" ng-submit="processSignup()">
+		<form class="form-horizontal" ng-submit="processEdit()">
 			<fieldset>
 				<legend>Edit your profile</legend>
 				<div class="control-group">
 					<label class="control-label" for="firstname">Firstname</label>
 					<div class="controls">
-						<input type="text" class="span3" id="firstname" ng-model="client.firstname" placeholder="Yacine" required pattern=".{2,}">
+						<input type="text" class="span3" id="firstname" ng-model="client.firstname" required pattern=".{2,}">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="lastname">Lastname</label>
 					<div class="controls">
-						<input type="text" class="span3" id="lastname" ng-model="client.lastname" placeholder="Rezgui" required pattern=".{2,}">
+						<input type="text" class="span3" id="lastname" ng-model="client.lastname" required pattern=".{2,}">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="email">Email</label>
 					<div class="controls">
-						<input type="email" class="span3" id="email" ng-model="client.email" placeholder="da@fu.ck" required>
+						<input type="email" class="span3" id="email" ng-model="client.email" required>
 					</div>
 				</div>
 				<div class="control-group">
@@ -38,7 +38,7 @@
 						<input type="url" class="span4" id="url" ng-model="client.url">
 					</div>
 				</div>
-				<button class="btn btn-primary offset2">Signup</button>
+				<button class="btn btn-primary offset2" ng-disabled="isClean()">Save</button>
 			</fieldset>
 		</form>
 	</div>
