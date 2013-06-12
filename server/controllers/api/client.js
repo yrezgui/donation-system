@@ -44,10 +44,12 @@ exports.save = function save(req, res, next) {
 
 	Client.findByIdAndUpdate(req.params.id, req.body, function(err, client) {
 
-		res.send({
-			error: err,
-			client: client || null
-		});
+		if(err || !client) {
+			res.send({err: 'user not exist'}, 404);
+			return;
+		}
+	
+		res.send(client.getProfile());
 	});
 };
 
@@ -56,10 +58,12 @@ exports.remove = function remove(req, res, next) {
 
 	Client.findByIdAndRemove(req.params.id, function(err, client) {
 		
-		res.send({
-			error: err,
-			client: client || null
-		});
+		if(err || !client) {
+			res.send({err: 'user not exist'}, 404);
+			return;
+		}
+	
+		res.send(client.getProfile());
 	});
 };
 
