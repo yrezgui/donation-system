@@ -1,14 +1,37 @@
 'use strict';
 
 angular.module('floussApp')
-	.controller('LoginCtrl', function LoginCtrl($scope, flash) {
-		$scope.awesomeThings = [
-			'HTML5 Boilerplate',
-			'AngularJS',
-			'Karma'
-		];
+	.controller('LoginCtrl', ['$scope', 'auth', 'flash', 'Client', '$location', '$route', function LoginCtrl($scope, auth, flash, Client, $location, $route) {
 
 		$scope.processLogin = function processLogin() {
-			console.log($scope.form);
+			
+			Client.login({}, $scope.form,
+				function success(client) {
+
+					console.log('success', client);
+
+					auth.login(client);
+
+					flash.add('login-success', {
+						type: 'info',
+						title: 'Hello back !',
+						content: 'We\'re happy to see you again.'
+					});
+
+					$location.url('/account');
+				},
+
+				function error(response) {
+					console.log('error', response);
+
+					flash.add('login-error', {
+						type: 'error',
+						title: 'Error !',
+						content: 'The email and/or password are incorrect.'
+					});
+
+					$route.reload();
+				}
+			);
 		};
-	});
+	}]);
