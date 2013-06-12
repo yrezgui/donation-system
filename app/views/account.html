@@ -1,13 +1,20 @@
 <div class="row">
 	<div class="span3">
 		<p class="text-centered">
-			<img class="img-polaroid" ng-src="{{ client.url || '/images/default-avatar.png' }}" alt="me">
+			<img class="img-polaroid" ng-src="{{ client.photo || '/images/default-avatar.png' }}" alt="me">
 		</p>
 	</div>
 	<div class="span8">
 		<form class="form-horizontal" ng-submit="processEdit()">
 			<fieldset>
-				<legend>Edit your profile</legend>
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#/account">Profile</a>
+					</li>
+					<li>
+						<a href="#/invoices">Invoices</a>
+					</li>
+				</ul>
 				<div class="control-group">
 					<label class="control-label" for="firstname">Firstname</label>
 					<div class="controls">
@@ -33,9 +40,9 @@
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="url">Photo (URL)</label>
+					<label class="control-label" for="photo">Photo (URL)</label>
 					<div class="controls">
-						<input type="url" class="span4" id="url" ng-model="client.url">
+						<input type="url" class="span4" id="photo" ng-model="client.photo" onerror="imageError()">
 					</div>
 				</div>
 				<button class="btn btn-primary offset2" ng-disabled="isClean()">Save</button>
