@@ -13,7 +13,8 @@ var clientSchema = Schema({
 	},
 	email: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	password: {
 		type: String,
@@ -29,12 +30,14 @@ var clientSchema = Schema({
 	}
 });
 
-clientSchema.methods.getProfile = function getProfile() {
+// Remove confidential informations
+clientSchema.methods.getPublic = function getPublic() {
 	obj = this.toObject();
 	delete obj.password;
+	delete obj.token;
 
 	return obj;
-}
+};
 
 // export the client model
 module.exports = db.model('Client', clientSchema);
