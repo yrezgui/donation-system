@@ -4,8 +4,8 @@ angular.module('floussApp', ['ngCookies', 'ngResource'])
 	.config(['$routeProvider', '$httpProvider', function floussApp($routeProvider, $httpProvider) {
 		$routeProvider
 			.when('/', {
-				templateUrl: 'views/home.html',
-				controller: 'HomeCtrl'
+				templateUrl: 'views/index.html',
+				controller: 'PageCtrl'
 			})
 			.when('/login', {
 				templateUrl: 'views/login.html',
@@ -14,6 +14,10 @@ angular.module('floussApp', ['ngCookies', 'ngResource'])
 			.when('/signup', {
 				templateUrl: 'views/signup.html',
 				controller: 'SignupCtrl'
+			})
+			.when('/account', {
+				templateUrl: 'views/account.html',
+				controller: 'AccountCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
