@@ -19,6 +19,10 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
 				templateUrl: 'views/account.html',
 				controller: 'AccountCtrl'
 			})
+			.when('/invoices', {
+				templateUrl: 'views/invoices.html',
+				controller: 'InvoicesCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
