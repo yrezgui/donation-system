@@ -35,7 +35,7 @@ if (!module.parent) {
 }
 	
 // serve static files
-app.use(express.static('../app'));
+app.use(express.static( __dirname + '/app'));
 
 // session support
 app.use(express.cookieParser());
