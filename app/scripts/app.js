@@ -23,6 +23,18 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
 				templateUrl: 'views/invoices.html',
 				controller: 'InvoicesCtrl'
 			})
+			.when('/invoice/:id', {
+				templateUrl: 'views/invoiceDetail.html',
+				controller: 'InvoiceDetailCtrl'
+			})
+			.when('/ebooks', {
+				templateUrl: 'views/ebooks.html',
+				controller: 'EbooksCtrl'
+			})
+			.when('/ebook/:id', {
+				templateUrl: 'views/ebookDetail.html',
+				controller: 'EbookDetailCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
