@@ -2,7 +2,7 @@
 var mongoose	= require('mongoose'),
 	Schema		= mongoose.Schema;
 
-var fileSchema = Schema({
+var ebookSchema = Schema({
 	fileId: {
 		type: String,
 		required: true
@@ -33,12 +33,13 @@ var fileSchema = Schema({
 });
 
 // Remove confidential informations
-fileSchema.methods.getPublic = function getPublic() {
+ebookSchema.methods.getPublic = function getPublic() {
 	obj = this.toObject();
 	delete obj.bucket;
+	delete obj.fileId;
 
 	return obj;
 };
 
-// export the file model
-module.exports = db.model('File', fileSchema);
+// export the ebook model
+module.exports = db.model('Ebook', ebookSchema);
