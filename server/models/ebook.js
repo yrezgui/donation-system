@@ -3,7 +3,7 @@ var mongoose	= require('mongoose'),
 	Schema		= mongoose.Schema;
 
 var ebookSchema = Schema({
-	fileId: {
+	filename: {
 		type: String,
 		required: true
 	},
