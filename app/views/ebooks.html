@@ -1,1 +1,12 @@
-<p>This is the ebooks view.</p>
+<div class="ebooks">
+	<div class="row demo-tiles">
+		<div class="span3 ebook" ng-repeat="ebook in ebooks">
+			<div class="tile">
+				<img ng-src="{{ebook.icon}}" alt="icon" class="tile-image big-illustration">
+				<h3 class="tile-title">{{ebook.title}}</h3>
+				<p>{{ebook.description}}</p>
+				<a class="btn btn-primary btn-large btn-block" href="http://designmodo.com/flat">{{ebook.price}} $</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -42,3 +42,12 @@ div.logo-header h1.demo-panel-title small{
 ul.nav.nav-tabs a {
 	text-decoration: none;
 }
+
+div.ebooks div.ebook {
+	margin-bottom: 20px;
+}
+
+div.ebooks h3.tile-title {
+	line-height: 22px;
+	margin-bottom: 15px;
+}
