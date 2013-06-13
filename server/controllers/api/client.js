@@ -46,6 +46,10 @@ exports.get = function get(req, res, next) {
 exports.save = function save(req, res, next) {
 	console.log('Update Client ' + req.params.id);
 
+	if(!req.body.password) {
+		delete req.body.password;
+	}
+
 	Client.findByIdAndUpdate(req.params.id, req.body, function (err, client) {
 
 		if(err || !client) {
