@@ -1,1 +1,22 @@
-<p>This is the ebookDetail view.</p>
+<div class="row ebook">
+	<div class="span3">
+		<p class="text-centered">
+			<img class="img-polaroid" ng-src="{{ebook.icon}}" alt="file-icon">
+		</p>
+	</div>
+	<div class="span8">
+		<fieldset>
+			<legend>{{ebook.title}}</legend>
+			<p class="description">{{ebook.description}}</p>
+			<p class="tags">
+				<span ng-repeat="tag in ebook.tags" class="label label-info tag">{{tag}}</span>
+			</p>
+			<p>
+				<input type="number" placeholder="Quantity" ng-model="quantity" class="span2" required>
+				<button class="btn btn-primary btn-large btn-purchase" ng-disabled="!isQuantityValid()">
+					<i class="icon-white icon-shopping-cart"></i> Purchase
+				</button>
+			</p>
+		</fieldset>
+	</div>
+</div>

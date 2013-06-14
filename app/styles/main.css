@@ -51,3 +51,11 @@ div.ebooks h3.tile-title {
 	line-height: 22px;
 	margin-bottom: 15px;
 }
+
+div.ebook .tag{
+	margin-right: 5px;
+}
+
+div.ebook .btn-purchase{
+	margin-top: -11px;
+}
