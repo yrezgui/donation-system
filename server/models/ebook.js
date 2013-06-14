@@ -3,16 +3,16 @@ var mongoose	= require('mongoose'),
 	Schema		= mongoose.Schema;
 
 var ebookSchema = Schema({
+	title: {
+		type: String,
+		required: true
+	},
 	filename: {
 		type: String,
 		required: true
 	},
 	bucket: {
 		type: String,
-		required: true
-	},
-	size: {
-		type: Number,
 		required: true
 	},
 	icon: {
