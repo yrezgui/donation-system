@@ -54,8 +54,35 @@ div.ebooks h3.tile-title {
 
 div.ebook .tag{
 	margin-right: 5px;
+	border-radius: 4px;
+	background-color: #1abc9c;
+	color: #ffffff;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	line-height: 15px;
+	padding: 6px 13px 8px 19px;
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
 }
 
-div.ebook .btn-purchase{
-	margin-top: -11px;
+div.loading {
+	background: #000000;
+	background: rgba(0,0,0,0.8);
+	background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
+	background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
+	background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
+	background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
+	filter: alpha(opacity = 80);
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	z-index: 5;
+}
+
+div.loading div.bubblingG {
+	top: 30%;
 }
