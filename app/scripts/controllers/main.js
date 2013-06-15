@@ -15,6 +15,8 @@ angular.module('floussApp')
 			// Remove current session
 			auth.logout();
 			// Redirect the user to login page
-			$location.url('/login');
+			$scope.$apply(function() {
+				$location.url('/login');
+			});
 		});
 	}]);
