@@ -35,6 +35,10 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
 				templateUrl: 'views/ebookDetail.html',
 				controller: 'EbookDetailCtrl'
 			})
+			.when('/admin', {
+				templateUrl: 'views/admin.html',
+				controller: 'AdminCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});

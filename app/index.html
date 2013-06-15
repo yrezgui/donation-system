@@ -25,6 +25,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/flat-ui.css">
+    <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -72,7 +73,12 @@
                     </li>
                     <li>
                       <a href="#/ebooks">
-                        eBooks
+                        Ebooks
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/admin">
+                        Admin
                       </a>
                     </li>
                     <li>
@@ -106,6 +112,8 @@
     <script src="components/lodash/lodash.js"></script>
     <script src="components/restangular/src/restangular.js"></script>
 
+    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/services/environment.js"></script>
@@ -122,7 +130,7 @@
     <script src="scripts/controllers/invoiceDetail.js"></script>
     <script src="scripts/controllers/ebooks.js"></script>
     <script src="scripts/controllers/ebookDetail.js"></script>
-    <script src="scripts/directives/upload.js"></script>
+    <script src="scripts/controllers/admin.js"></script>
     <script src="scripts/directives/sprite-purchase.js"></script>
     <!-- endbuild -->
 
