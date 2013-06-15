@@ -36,7 +36,7 @@ var ebookSchema = Schema({
 ebookSchema.methods.getPublic = function getPublic() {
 	obj = this.toObject();
 	delete obj.bucket;
-	delete obj.fileId;
+	delete obj.filename;
 
 	return obj;
 };

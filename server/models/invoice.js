@@ -8,16 +8,12 @@ var invoiceSchema = Schema({
 		ref: 'Client',
 		required: true
 	},
-	fileId: {
+	file: {
 		type: Schema.Types.ObjectId,
 		ref: 'File'
 	},
 	date: {
 		type: Date,
-		required: true
-	},
-	total: {
-		type: Number,
 		required: true
 	}
 });
