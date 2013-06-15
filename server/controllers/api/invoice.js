@@ -17,7 +17,13 @@ exports.query = function query(req, res, next) {
 exports.create = function create(req, res, next) {
 	console.log('Create Invoice');
 
-	Invoice.create(req.body, function (err, invoice) {
+	var newInvoice = {
+		client: req.body.client,
+		file: req.body.file,
+		date: new Date()
+	};
+
+	Invoice.create(newInvoice, function (err, invoice) {
 
 		if(err || !invoice) {
 			res.send({err: 'invoice not created'}, 409);
