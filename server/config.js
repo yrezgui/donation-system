@@ -15,8 +15,8 @@ var config = require('config-env').define('NODE_ENV', function (config) {
 		// Amazon Credentials
 		aws_accessKeyId: 'AAAAAAAAAAAAAAAAAAA',
 		aws_secretAccessKey: 'XXXXXXXXXXXXXXXX',
-		// Default Avatar
-		default_avatar: 'http://localhost:' + process.env.PORT + '/images/default-avatar.png'
+		// Stripe Private Key
+		stripe_privateKey: 'SSSSSSSSS'
 	});
 
 	config.config('production', {
