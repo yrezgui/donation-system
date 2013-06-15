@@ -6,17 +6,27 @@
 	</div>
 	<div class="span8">
 		<fieldset>
-			<legend>{{ebook.title}}</legend>
+			<legend>{{ebook.title}} <b class="pull-right">{{ ebook.price | currency }}</b></legend>
 			<p class="description">{{ebook.description}}</p>
 			<p class="tags">
-				<span ng-repeat="tag in ebook.tags" class="label label-info tag">{{tag}}</span>
+				<span ng-repeat="tag in ebook.tags" class="tag"><span>{{tag}} &nbsp;</span></span>
 			</p>
-			<p>
-				<input type="number" placeholder="Quantity" ng-model="quantity" class="span2" required>
-				<button class="btn btn-primary btn-large btn-purchase" ng-disabled="!isQuantityValid()">
+			<p class="pull-right">
+				<button
+					class="btn btn-info btn-large btn-purchase"
+					sprite-purchase="spriteSettings" 
+					callback="makePayment(token)"
+				>
 					<i class="icon-white icon-shopping-cart"></i> Purchase
 				</button>
 			</p>
 		</fieldset>
+	</div>
+</div>
+<div class="loading" ng-class="{hide: !wait}">
+	<div class="bubblingG centered">
+		<span id="bubblingG_1"></span>
+		<span id="bubblingG_2"></span>
+		<span id="bubblingG_3"></span>
 	</div>
 </div>
