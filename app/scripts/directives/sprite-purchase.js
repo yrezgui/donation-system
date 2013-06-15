@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('floussApp')
-	.directive('spritePurchase', ['config', function spritePurchase(config) {
+	.directive('spritePurchase', ['config', 'auth', function spritePurchase(config, auth) {
 		return {
 			restrict: 'EAC',
 			scope: {
@@ -11,6 +11,11 @@ angular.module('floussApp')
 			},
 			link: function ($scope, element, attrs) {
 				element.on('click', function click() {
+
+					if(!auth.isConnected()) {
+						$scope.$emit('auth:loginRequired');
+						return;
+					}
 
 					StripeCheckout.open({
 						key: config.get('stripe_public_key'),
