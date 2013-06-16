@@ -8,9 +8,10 @@ var invoiceSchema = Schema({
 		ref: 'Client',
 		required: true
 	},
-	file: {
+	ebook: {
 		type: Schema.Types.ObjectId,
-		ref: 'File'
+		ref: 'Ebook',
+		required: true
 	},
 	date: {
 		type: Date,
