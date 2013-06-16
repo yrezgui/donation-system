@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('floussApp')
+angular.module('floussServices', ['ngCookies'])
 	.factory('auth', ['$cookieStore', function auth($cookieStore) {
 		var _user = null;
 		// It sets the current logged user with the info

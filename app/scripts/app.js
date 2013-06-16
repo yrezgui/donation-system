@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
+angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular', 'floussServices'])
 	.config(['$routeProvider', '$httpProvider', 'RestangularProvider', function floussApp($routeProvider, $httpProvider, RestangularProvider) {
 		$routeProvider
 			.when('/', {
@@ -42,7 +42,7 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
 			.otherwise({
 				redirectTo: '/'
 			});
- 
+
 		$httpProvider.responseInterceptors.push(function authHttpMiddleware($q, $rootScope){
 
 			var success = function success(response) {
@@ -82,15 +82,23 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular'])
 		
 		});
 
+		var auth = angular.injector(['floussServices']).get('auth');
+
 		RestangularProvider.setBaseUrl('/api');
 		
 		RestangularProvider.setRestangularFields({
 			id: '_id'
 		});
+
+		RestangularProvider.setDefaultRequestParams({
+			token: auth.getToken()
+		});
       
 		RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
 			
-			if (operation === 'put') {
+			console.log(elem, operation, what);
+
+			if (operation === 'put' || operation === 'post') {
 				delete elem._id;
 				return elem;
 			}
