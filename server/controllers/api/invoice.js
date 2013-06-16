@@ -1,71 +1,98 @@
-var Invoice = require('../../models/invoice.js');
+var config		= require('../../config.js');
+var Invoice		= require('../../models/invoice.js');
+var stripe		= require('stripe')(config.param('stripe_privateKey'));
+var sig			= require('amazon-s3-url-signer');
+var mongoose	= require('mongoose');
 
 exports.query = function query(req, res, next) {
 	console.log('Query Invoices');
 
-	Invoice.find(function (err, invoices) {
+	Invoice
+		.find()
+		.populate('ebook')
+		.where('client').equals(req.loggedClient._id)
+		.exec(function (err, invoices) {
+			
+			if(err) {
+				res.send({err: 'server error'}, 500);
+				return;
+			}
 		
-		if(err) {
-			res.send({err: 'server error'}, 500);
-			return;
-		}
-	
-		res.send(invoices);
-	});
+			res.send(invoices);
+		});
 };
 
 exports.create = function create(req, res, next) {
 	console.log('Create Invoice');
 
-	var newInvoice = {
-		client: req.body.client,
-		file: req.body.file,
-		date: new Date()
-	};
+	var newCharge = {
+		amount: req.body.amount,
+		currency: config.param('stripe_currency'),
+		card: req.body.stripe_token
+	}
 
-	Invoice.create(newInvoice, function (err, invoice) {
+	stripe.charges.create(newCharge, function capture(err, response) {
 
-		if(err || !invoice) {
+		if(err || !response) {
 			res.send({err: 'invoice not created'}, 409);
 			return;
 		}
-	
-		res.send(invoice);
+
+		var newInvoice = {
+			client: req.body.client,
+			ebook: req.body.ebook,
+			date: new Date()
+		};
+
+		Invoice.create(newInvoice, function (err, invoice) {
+
+			if(err || !invoice) {
+				res.send({err: 'invoice not created'}, 409);
+				return;
+			}
+		
+			res.send(invoice);
+		});
 	});
 };
 
 exports.get = function get(req, res, next) {
 	console.log('Get Invoice ' + req.params.id);
 
-	Invoice.findOne({_id: req.params.id}, function (err, invoice) {
-		
-		res.send({
-			error: err,
-			invoice: invoice || null
+	Invoice
+		.findOne({
+			_id: req.params.id,
+			client: req.loggedClient._id
+		})
+		.populate('ebook')
+		.exec(function (err, invoice) {
+
+			if(req.loggedClient._id.toString() != invoice.client.toString()) {
+				res.send({err: 'not authorized'}, 403)
+			}
+
+			res.send(invoice);
 		});
-	});
 };
 
-exports.save = function save(req, res, next) {
-	console.log('Update Invoice ' + req.params.id);
+exports.download = function download(req, res, next) {
+	console.log('Download Ebook from Invoice ' + req.params.id);
 
-	Invoice.findByIdAndUpdate(req.params.id, req.body, function (err, invoice) {
-		
-		res.send({
-			error: err,
-			invoice: invoice || null
+	Invoice
+		.findOne({
+			_id: req.params.id,
+			client: req.loggedClient._id
+		})
+		.populate('ebook')
+		.exec(function (err, invoice) {
+
+			if(req.loggedClient._id.toString() != invoice.client.toString()) {
+				res.send({err: 'not authorized'}, 403)
+			}
+
+			var bucket		= sig.urlSigner(config.param('aws_accessKeyId'), config.param('aws_secretAccessKey'), {});
+			var signedUrl	= bucket.getUrl('GET', invoice.ebook.filename, invoice.ebook.bucket, 1);
+
+			res.redirect(signedUrl);
 		});
-	});
-};
-
-exports.remove = function remove(req, res, next) {
-	console.log('Remove Invoice ' + req.params.id);
-
-	Invoice.findByIdAndRemove(req.params.id, function (err, invoice) {
-		
-		res.send({
-			error: err,
-			invoice: invoice || null
-		});
-	});
 };
