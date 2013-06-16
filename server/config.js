@@ -15,8 +15,12 @@ var config = require('config-env').define('NODE_ENV', function (config) {
 		// Amazon Credentials
 		aws_accessKeyId: 'AAAAAAAAAAAAAAAAAAA',
 		aws_secretAccessKey: 'XXXXXXXXXXXXXXXX',
+		// Amazon Datacenter Region
+		aws_regin: 'us-east-1',
 		// Stripe Private Key
-		stripe_privateKey: 'SSSSSSSSS'
+		stripe_privateKey: 'SSSSSSSSSSSSSSSSSSSS',
+		// Stripe Default Currency
+		stripe_currency: 'usd'
 	});
 
 	config.config('production', {
