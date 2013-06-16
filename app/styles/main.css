@@ -86,3 +86,8 @@ div.loading {
 div.loading div.bubblingG {
 	top: 30%;
 }
+
+div.invoices.ebooks img.media-object {
+	width: 64px;
+	height: 64px;
+}
