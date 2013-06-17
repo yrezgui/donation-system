@@ -59,8 +59,7 @@ exports.create = function create(req, res, next) {
 				return;
 			}
 
-			pusher.trigger(config.param('pusher_channel'), 'purchase', {'ebook': req.body.ebookTitle});
-		
+			
 			res.send(invoice);
 		});
 	});
@@ -100,7 +99,7 @@ exports.download = function download(req, res, next) {
 				res.send({err: 'not authorized'}, 403)
 			}
 
-			var signedUrl	= urlSigner.getUrl('GET', invoice.ebook.filename, invoice.ebook.bucket, 5);
+			var signedUrl = urlSigner.getUrl('GET', invoice.ebook.filename, invoice.ebook.bucket, 5);
 
 			res.redirect(signedUrl);
 		});
