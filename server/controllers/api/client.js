@@ -1,20 +1,6 @@
 var Client	= require('../../models/client.js');
 var crypto	= require('crypto');
 
-exports.query = function query(req, res, next) {
-	console.log('Query Clients');
-
-	Client.find().select('-token -password').exec(function (err, clients) {
-		
-		if(err) {
-			res.send({err: 'server error'}, 500);
-			return;
-		}
-	
-		res.send(clients);
-	});
-};
-
 exports.create = function create(req, res, next) {
 	console.log('Create Client');
 
@@ -32,14 +18,22 @@ exports.create = function create(req, res, next) {
 exports.get = function get(req, res, next) {
 	console.log('Get Client ' + req.params.id);
 
+	
 	Client.findOne({_id: req.params.id}, function (err, client) {
 
 		if(err || !client) {
 			res.send({err: 'client not exist'}, 404);
 			return;
 		}
-	
-		res.send(client.getPublic());
+
+		if(req.loggedClient._id != req.params.id)
+		{
+			res.send(client.getPublic());
+		}
+		else
+		{
+			res.send(client.getLogin());
+		}
 	});
 };
 
@@ -50,22 +44,14 @@ exports.save = function save(req, res, next) {
 		delete req.body.password;
 	}
 
+	if(req.loggedClient._id != req.params.id)
+	{
+		res.send({err: 'not authorized'}, 403);
+		return;
+	}
+
 	Client.findByIdAndUpdate(req.params.id, req.body, function (err, client) {
 
-		if(err || !client) {
-			res.send({err: 'client not exist'}, 404);
-			return;
-		}
-	
-		res.send(client.getPublic());
-	});
-};
-
-exports.remove = function remove(req, res, next) {
-	console.log('Remove Client ' + req.params.id);
-
-	Client.findByIdAndRemove(req.params.id, function (err, client) {
-		
 		if(err || !client) {
 			res.send({err: 'client not exist'}, 404);
 			return;
@@ -95,7 +81,7 @@ exports.login = function login(req, res, next) {
 				return;
 			}
 	
-			res.send(client.getPublic());
+			res.send(client.getLogin());
 		}
 	);
 };
