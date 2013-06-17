@@ -91,3 +91,7 @@ div.invoices.ebooks img.media-object {
 	width: 64px;
 	height: 64px;
 }
+
+div.notification {
+	margin-bottom: 10px;
+}

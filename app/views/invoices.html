@@ -19,7 +19,7 @@
 					<img class="media-object" ng-src="{{invoice.ebook.icon}}">
 				</a>
 				<div class="media-body">
-					<h4 class="media-heading">{{invoice.ebook.title}}</h4>
+					<h4 class="media-heading">{{invoice.ebook.title}} <small class="pull-right">{{ invoice.date | date:'mediumDate' }}</small></h4>
 					{{invoice.ebook.description}}
 				</div>
 			</div>
@@ -27,19 +27,8 @@
 	</div>
 </div>
 <div style="position: fixed; top: 220px; right: 2%;">
-	<div class="tooltip-inner">
-		<b>New purchase !</b>
-		<br>
-		<small>2x Smart eye in startups economy</small>
-	</div>
-	<div class="tooltip-inner">
-		<b>New purchase !</b>
-		<br>
-		<small>5x Become a ninja with AngularJS</small>
-	</div>
-	<div class="tooltip-inner">
-		<b>New purchase !</b>
-		<br>
-		<small>1x Yahoo! is back</small>
-	</div>
+	<div notification title="{{ 'New purchase !' }}" message="{{ 'you can see it' }}"></div>
+	<div notification title="{{ 'New purchase !' }}" message="{{ 'you can see it' }}"></div>
+	<div notification title="{{ 'New purchase !' }}" message="{{ 'you can see it' }}"></div>
+	<div notification title="{{ 'New purchase !' }}" message="{{ 'you can see it' }}"></div>
 </div>
