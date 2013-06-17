@@ -1,1 +1,24 @@
-<p>This is the invoiceDetail view.</p>
+<div class="row ebook">
+	<div class="span3">
+		<p class="text-centered">
+			<img class="img-polaroid" ng-src="{{invoice.ebook.icon}}" alt="ebook-icon">
+		</p>
+	</div>
+	<div class="span8">
+		<fieldset>
+			<legend>{{invoice.ebook.title}}</legend>
+			<p class="description">{{invoice.ebook.description}}</p>
+			<p class="tags">
+				<span ng-repeat="tag in invoice.ebook.tags" class="tag"><span>{{tag}} &nbsp;</span></span>
+			</p>
+			<p class="pull-right">
+				<small>The link will expire in 5 minutes. Reload to regenerate it</small>
+				<br>
+				<br>
+				<a class="btn btn-info btn-large pull-right" href="/api/invoice/{{invoice._id}}/download?token={{auth.getToken()}}">
+					<i class="icon-white icon-download-alt"></i> Download
+				</a>
+			</p>
+		</fieldset>
+	</div>
+</div>
