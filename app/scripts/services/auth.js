@@ -27,7 +27,7 @@ angular.module('floussServices', ['ngCookies'])
 			},
 			// Return the current token of the user
 			getToken: function getToken() {
-				return _user ? _user.token : null;
+				return _user ? _user.token : '';
 			},
 			// Remove the user cookie and set to null the current user object
 			logout: function logout() {
