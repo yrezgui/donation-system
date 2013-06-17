@@ -59,7 +59,8 @@ exports.create = function create(req, res, next) {
 				return;
 			}
 
-			
+			pusher.trigger(config.param('pusher_channel'), 'purchase', {'ebook': req.body.ebookTitle});
+		
 			res.send(invoice);
 		});
 	});
