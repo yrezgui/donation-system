@@ -20,7 +20,13 @@ var config = require('config-env').define('NODE_ENV', function (config) {
 		// Stripe Private Key
 		stripe_privateKey: 'SSSSSSSSSSSSSSSSSSSS',
 		// Stripe Default Currency
-		stripe_currency: 'usd'
+		stripe_currency: 'usd',
+		// Pusher App Id
+		pusher_appId: '123456789',
+		// Pusher Public Key
+		pusher_publicKey: 'PPPPPPPPPPPPPPPP',
+		// Pusher Private Key
+		pusher_privateKey: 'XXXXXXXXXXXXXXXX'
 	});
 
 	config.config('production', {
