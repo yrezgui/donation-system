@@ -45,7 +45,8 @@ angular.module('floussApp')
 				stripe_token: token.id,
 				client: auth.getId(),
 				ebook: $routeParams.id,
-				amount: $scope.ebook.price.toString().replace('.', '')
+				amount: $scope.ebook.price.toString().replace('.', ''),
+				ebookTitle: $scope.ebook.title
 			};
 
 			Restangular.all('invoice').post(newInvoice).then(

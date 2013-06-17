@@ -3,6 +3,14 @@ var Invoice		= require('../../models/invoice.js');
 var stripe		= require('stripe')(config.param('stripe_privateKey'));
 var sig			= require('amazon-s3-url-signer');
 var mongoose	= require('mongoose');
+var Pusher		= require('pusher');
+
+var urlSigner	= sig.urlSigner(config.param('aws_accessKeyId'), config.param('aws_secretAccessKey'), {});
+var pusher		= new Pusher({
+	appId: config.param('pusher_appId'),
+	key: config.param('pusher_key'),
+	secret: config.param('pusher_secret')
+});
 
 exports.query = function query(req, res, next) {
 	console.log('Query Invoices');
@@ -50,6 +58,8 @@ exports.create = function create(req, res, next) {
 				res.send({err: 'invoice not created'}, 409);
 				return;
 			}
+
+			pusher.trigger(config.param('pusher_channel'), 'purchase', {'ebook': req.body.ebookTitle});
 		
 			res.send(invoice);
 		});
@@ -90,8 +100,7 @@ exports.download = function download(req, res, next) {
 				res.send({err: 'not authorized'}, 403)
 			}
 
-			var bucket		= sig.urlSigner(config.param('aws_accessKeyId'), config.param('aws_secretAccessKey'), {});
-			var signedUrl	= bucket.getUrl('GET', invoice.ebook.filename, invoice.ebook.bucket, 1);
+			var signedUrl	= urlSigner.getUrl('GET', invoice.ebook.filename, invoice.ebook.bucket, 5);
 
 			res.redirect(signedUrl);
 		});
