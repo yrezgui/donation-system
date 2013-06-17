@@ -3,134 +3,136 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Flouss Demo</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Flouss Demo</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-31448413-5', 'flouss.co');
-      ga('send', 'pageview');
-    </script>
+			ga('create', 'UA-31448413-5', 'flouss.co');
+			ga('send', 'pageview');
+		</script>
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/bootstrap.css">
-    <link rel="stylesheet" href="styles/flat-ui.css">
-    <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="floussApp" ng-controller="MainCtrl">
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
+		<!-- build:css styles/main.css -->
+		<link rel="stylesheet" href="styles/bootstrap.css">
+		<link rel="stylesheet" href="styles/flat-ui.css">
+		<link rel="stylesheet" href="styles/animations.css">
+		<link rel="stylesheet" href="styles/main.css">
+		<!-- endbuild -->
+	</head>
+	<body ng-app="floussApp" ng-controller="MainCtrl">
+		<!--[if lt IE 7]>
+			<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+		<![endif]-->
 
-    <!--[if lt IE 9]>
-      <script src="components/es5-shim/es5-shim.js"></script>
-      <script src="components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+		<!--[if lt IE 9]>
+			<script src="components/es5-shim/es5-shim.js"></script>
+			<script src="components/json3/lib/json3.min.js"></script>
+		<![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="logo-header span7 centered">
-        <div class="logo-img pull-left"></div>
-        <h1 class="demo-panel-title pull-left">
-          <span>Flouss</span>
-          <br>
-          <small>Simple Paid Content Management System</small>
-        </h1>
-      </div>
-      <div class="row demo-row">
-        <div class="span12">
-          <div class="navbar navbar-inverse">
-            <div class="navbar-inner">
-              <div class="container">
-                <div class="nav-collapse collapse">
-                  <ul class="nav">
-                    <li>
-                      <a href="#/">
-                        Flouss
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#/account">
-                        My Account
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#/ebooks">
-                        Ebooks
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://github.com/yrezgui/flouss">
-                        Fork on GitHub
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="messages">
-        <div ng-cloak class="alert" ng-repeat="msg in messages" ng-class="'alert-' + msg.type">
-          <h4>{{msg.title}}</h4>
-          {{msg.content}}
-        </div>
-      </div>
-      <div ng-view></div>
-    </div>
+		<!-- Add your site or application content here -->
+		<div class="container">
+			<div class="logo-header span7 centered">
+				<div class="logo-img pull-left"></div>
+				<h1 class="demo-panel-title pull-left">
+					<span>Flouss</span>
+					<br>
+					<small>Simple Paid Content Management System</small>
+				</h1>
+			</div>
+			<div class="row demo-row">
+				<div class="span12">
+					<div class="navbar navbar-inverse">
+						<div class="navbar-inner">
+							<div class="container">
+								<div class="nav-collapse collapse">
+									<ul class="nav">
+										<li>
+											<a href="#/">
+												Flouss
+											</a>
+										</li>
+										<li>
+											<a href="#/account">
+												My Account
+											</a>
+										</li>
+										<li>
+											<a href="#/ebooks">
+												Ebooks
+											</a>
+										</li>
+										<li>
+											<a href="http://github.com/yrezgui/flouss">
+												Fork on GitHub
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="messages">
+				<div ng-cloak class="alert" ng-repeat="msg in messages" ng-class="'alert-' + msg.type">
+					<h4>{{msg.title}}</h4>
+					{{msg.content}}
+				</div>
+			</div>
+			<div ng-view></div>
+		</div>
 
-    <script src="components/jquery/jquery.js"></script>
-    <script src="components/angular/angular.js"></script>
-    <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/angular-cookies/angular-cookies.js"></script>
-    <script src="components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="components/lodash/lodash.js"></script>
-    <script src="components/restangular/src/restangular.js"></script>
+		<script src="components/jquery/jquery.js"></script>
+		<script src="components/angular/angular.js"></script>
+		<script src="components/angular-resource/angular-resource.js"></script>
+		<script src="components/angular-cookies/angular-cookies.js"></script>
+		<script src="components/angular-sanitize/angular-sanitize.js"></script>
+		<script src="components/angular-sanitize/angular-sanitize.js"></script>
+		<script src="components/lodash/lodash.js"></script>
+		<script src="components/restangular/src/restangular.js"></script>
+		<script src="components/jquery.transit/jquery.transit.js"></script>
 
-    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+		<script src="https://checkout.stripe.com/v2/checkout.js"></script>
 
-    <!-- build:js scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/services/environment.js"></script>
-    <script src="scripts/services/config.js"></script>
-    <script src="scripts/services/Client.js"></script>
-    <script src="scripts/services/flash.js"></script>
-    <script src="scripts/services/auth.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/account.js"></script>
-    <script src="scripts/controllers/signup.js"></script>
-    <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/page.js"></script>
-    <script src="scripts/controllers/invoices.js"></script>
-    <script src="scripts/controllers/invoiceDetail.js"></script>
-    <script src="scripts/controllers/ebooks.js"></script>
-    <script src="scripts/controllers/ebookDetail.js"></script>
-    <script src="scripts/directives/sprite-purchase.js"></script>
-    <!-- endbuild -->
+		<!-- build:js scripts/scripts.js -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/services/environment.js"></script>
+		<script src="scripts/services/config.js"></script>
+		<script src="scripts/services/Client.js"></script>
+		<script src="scripts/services/flash.js"></script>
+		<script src="scripts/services/auth.js"></script>
+		<script src="scripts/controllers/main.js"></script>
+		<script src="scripts/controllers/account.js"></script>
+		<script src="scripts/controllers/signup.js"></script>
+		<script src="scripts/controllers/login.js"></script>
+		<script src="scripts/controllers/page.js"></script>
+		<script src="scripts/controllers/invoices.js"></script>
+		<script src="scripts/controllers/invoiceDetail.js"></script>
+		<script src="scripts/controllers/ebooks.js"></script>
+		<script src="scripts/controllers/ebookDetail.js"></script>
+		<script src="scripts/directives/sprite-purchase.js"></script>
+		<script src="scripts/directives/notification.js"></script>
+		<!-- endbuild -->
 
-    <script>
-      (function () {
-        var po = document.createElement('script');
-        po.type = 'text/javascript';
-        po.async = true;
-        po.src = 'https://plus.google.com/js/client:plusone.js?onload=start';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(po, s);
-      })();
-    </script>
-  </body>
+		<script>
+			(function () {
+				var po = document.createElement('script');
+				po.type = 'text/javascript';
+				po.async = true;
+				po.src = 'https://plus.google.com/js/client:plusone.js?onload=start';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
 </html>
