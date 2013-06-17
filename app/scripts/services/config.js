@@ -12,8 +12,11 @@ angular.module('floussApp')
 				// Stripe default currency
 				'stripe_currency': 'usd',
 				// Stripe purchase button label
-				'stripe_button_label': 'Checkout'
-
+				'stripe_button_label': 'Checkout',
+				// Pusher public key
+				'pusher_key': 'PUSHER PUBLIC KEY',
+				// Pusher purchases channel
+				'pusher_channel': 'purchases'
 			}
 		};
 
