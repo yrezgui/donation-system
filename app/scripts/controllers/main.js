@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('floussApp')
-	.controller('MainCtrl', ['$scope', 'flash', 'auth', '$location', function MainCtrl($scope, flash, auth, $location) {
+	.controller('MainCtrl', ['$scope', 'flash', 'auth', '$location', '$route', function MainCtrl($scope, flash, auth, $location, $route) {
+
+		var safeApply = function safeApply(fn) {
+			($scope.$$phase || $scope.$root.$$phase) ? fn() : $scope.$apply(fn);
+		};
 
 		$scope.connected = auth.isConnected();
 
@@ -15,7 +19,7 @@ angular.module('floussApp')
 			// Remove current session
 			auth.logout();
 			// Redirect the user to login page
-			$scope.$apply(function() {
+			safeApply(function() {
 				$location.url('/login');
 			});
 		});

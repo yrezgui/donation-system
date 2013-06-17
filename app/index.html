@@ -85,7 +85,6 @@
       </div>
       <div class="messages">
         <div ng-cloak class="alert" ng-repeat="msg in messages" ng-class="'alert-' + msg.type">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
           <h4>{{msg.title}}</h4>
           {{msg.content}}
         </div>
