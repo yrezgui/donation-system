@@ -1,4 +1,4 @@
-# ![Flouss Logo](http://farm9.staticflickr.com/8559/8994014836_e186881af6_t.jpg "Flouss logo")
+![Flouss Logo](http://farm9.staticflickr.com/8559/8994014836_e186881af6_t.jpg "Flouss logo")
 
 Flouss
 ======
@@ -16,7 +16,6 @@ Enjoy coding! - [Yacine Rezgui](http://www.yrezgui.com)
 How to install it
 -----------------
 
-You have to clone the repositery
 1.  Clone the repositery
 2.  Create a MongoDB database named `flouss`
 3.  Personnalize the config settings (front end one in `app/services/config.js` and back end one in `server/config.js`)
