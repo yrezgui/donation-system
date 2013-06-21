@@ -20,3 +20,6 @@ How to install it
 2.  Create a MongoDB database named `flouss`
 3.  Personnalize the config settings (front end one in `app/services/config.js` and back end one in `server/config.js`)
 4.  Move to the server folder and run this command : `node index`
+
+
+I will write a tutorial soon (french & english). Stay tune !
