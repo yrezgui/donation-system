@@ -12,6 +12,7 @@ angular.module('floussServices', ['ngCookies'])
 			setUser: function setUser(user) {
 				_user = user;
 				$cookieStore.put('user', _user);
+				console.log(_user);
 			},
 			// Check if the user is logged
 			isConnected: function isConnected() {

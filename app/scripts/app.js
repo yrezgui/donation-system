@@ -39,9 +39,28 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular', 'floussSe
 				redirectTo: '/'
 			});
 
+		var auth = angular.injector(['floussServices']).get('auth');
+		console.log('app', auth, auth.getToken());
+
+		RestangularProvider.setBaseUrl('/api');
+		
+		RestangularProvider.setRestangularFields({
+			id: '_id'
+		});
+
+		RestangularProvider.setDefaultRequestParams({
+			token: auth.getToken()
+		});
+
 		$httpProvider.responseInterceptors.push(function authHttpMiddleware($q, $rootScope){
 
 			var success = function success(response) {
+				if(response.config.url == '/api/client/login') {
+					RestangularProvider.setDefaultRequestParams({
+						token: response.data.token
+					});	
+				}
+
 				return response;
 			};
 		
@@ -76,18 +95,6 @@ angular.module('floussApp', ['ngCookies', 'ngResource', 'restangular', 'floussSe
 				return promise.then(success, error)
 			};
 		
-		});
-
-		var auth = angular.injector(['floussServices']).get('auth');
-
-		RestangularProvider.setBaseUrl('/api');
-		
-		RestangularProvider.setRestangularFields({
-			id: '_id'
-		});
-
-		RestangularProvider.setDefaultRequestParams({
-			token: auth.getToken()
 		});
       
 		RestangularProvider.setRequestInterceptor(function(elem, operation, what) {

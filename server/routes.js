@@ -11,6 +11,8 @@ module.exports = function(parent){
 	parent.all('/api/*', function(req, res, next){
 		clientModel.findOne({token: req.query.token}, function(err, loggedClient){
 
+			req.loggedClient = {};
+
 			if(!err && loggedClient) {
 				req.loggedClient = loggedClient;
 			}
