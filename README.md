@@ -3,7 +3,7 @@
 Flouss
 ======
 
-**Flouss** is a demo of paid content management system.
+**Flouss** is a simple paid content management system.
 
 It uses *Stripe*, *Pusher* and *Amazon* APIs.
 It's proudly powered by *NodeJS*, *AngularJS* and *MongoDB* (full stack JS).
@@ -13,6 +13,11 @@ It's just shows how it's easy to make a little ecommerce website with all these 
 
 Enjoy coding! - [Yacine Rezgui](http://www.yrezgui.com)
 
+
+[Demo](http://flouss.aws.af.cm/)
+-----------------
+
+
 How to install it
 -----------------
 
@@ -20,6 +25,3 @@ How to install it
 2.  Create a MongoDB database named `flouss`
 3.  Personnalize the config settings (front end one in `app/services/config.js` and back end one in `server/config.js`)
 4.  Move to the server folder and run this command : `node index`
-
-
-I will write a tutorial soon (french & english). Stay tune !
