@@ -25,3 +25,10 @@ How to install it
 2.  Create a MongoDB database named `flouss`
 3.  Personnalize the config settings (front end one in `app/services/config.js` and back end one in `server/config.js`)
 4.  Move to the server folder and run this command : `node index`
+
+
+Tutorial
+--------
+
+1.  [Flouss, my new project (AngularJS, NodeJS, MongoDB, Stripe, Amazon S3)](http://blog.yrezgui.com/post/53538714047/flouss-my-new-project-angularjs-nodejs-mongodb)
+2.  [Introduction to Single Page Application](http://blog.yrezgui.com/post/53543630839/flouss-introduction-to-single-page-application)
