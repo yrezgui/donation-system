@@ -32,3 +32,4 @@ Tutorial
 
 1.  [Flouss, my new project (AngularJS, NodeJS, MongoDB, Stripe, Amazon S3)](http://blog.yrezgui.com/post/53538714047/flouss-my-new-project-angularjs-nodejs-mongodb)
 2.  [Introduction to Single Page Application](http://blog.yrezgui.com/post/53543630839/flouss-introduction-to-single-page-application)
+3.  [Tutorial part 1: the database] (http://blog.yrezgui.com/post/53923568963/flouss-tutorial-part-1-the-database)
