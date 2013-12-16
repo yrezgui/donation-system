@@ -3,6 +3,8 @@
 Flouss
 ======
 
+#### Not maintained anymore, sorry.
+
 **Flouss** is a simple paid content management system.
 
 It uses *Stripe*, *Pusher* and *Amazon* APIs.
