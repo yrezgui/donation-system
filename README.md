@@ -7,7 +7,7 @@ Flouss
 
 **Flouss** is a simple paid content management system.
 
-It uses *Stripe*, *Pusher* and *Amazon* APIs.
+It uses *Stripe* and *Amazon* APIs.
 It's proudly powered by *NodeJS*, *AngularJS* and *MongoDB* (full stack JS).
 
 This project is a simple demo. There are many security issues but it's not the goal of this project.
